@@ -3,6 +3,8 @@ from slackeventsapi import SlackEventAdapter
 
 from slack import WebClient
 
+from send_telegram import send_telegram_notif
+
 import os
 
 SLACK_TOKEN = os.environ['SLACK_TOKEN']
@@ -47,6 +49,11 @@ def message_channel(event_data):
 		text=f"{text}"
 	)
 
+
+@slack_events_adapter.on("app_mention")
+def mention_me(event_data):
+	print("sup")
+	send_telegram_notif()
 
 # Start the server on port 3000
 if __name__ == "__main__":
