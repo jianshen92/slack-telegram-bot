@@ -3,7 +3,7 @@ from slackeventsapi import SlackEventAdapter
 
 from slack import WebClient
 
-SLACK_TOKEN = "xoxb-990892714049-1001003062405-ymEZEHUf4unaLs1jNsioKiXn"
+SLACK_TOKEN = "xoxb-990892714049-1001003062405-fRXUWb37T8QBTXfr7LztIkb0"
 slack_client = WebClient(SLACK_TOKEN)
 
 # This `app` represents your existing Flask app
