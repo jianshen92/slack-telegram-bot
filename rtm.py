@@ -1,5 +1,7 @@
 from slack import RTMClient
 
+import os
+
 @RTMClient.run_on(event="message")
 def say_hello(**payload):
 	data = payload['data']
@@ -19,6 +21,6 @@ def say_hello(**payload):
 	  text=f"Send this message '{data['text']}' from <@{user}> to Telegram !",
 	)
 
-slack_token = "xoxb-990892714049-990959320337-9lglHMMK2n6qjnTV1KUd0ykg"
+slack_token = os.environ['SLACK_TOKEN']
 rtm_client = RTMClient(token=slack_token)
 rtm_client.start()

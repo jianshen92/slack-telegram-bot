@@ -5,7 +5,7 @@ import time
 from slack import WebClient
 # from telegram.bot import Bot
 
-SLACK_TOKEN = "xoxb-990892714049-1001003062405-5nj4I8iE7GvOkZiTBzKtBXGY"
+SLACK_TOKEN = os.environ['SLACK_TOKEN']
 slack_client = WebClient(SLACK_TOKEN)
 
 slack_client.chat_postMessage(

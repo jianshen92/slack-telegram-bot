@@ -3,7 +3,9 @@ from slackeventsapi import SlackEventAdapter
 
 from slack import WebClient
 
-SLACK_TOKEN = "xoxb-990892714049-1001003062405-fRXUWb37T8QBTXfr7LztIkb0"
+import os
+
+SLACK_TOKEN = os.environ['SLACK_TOKEN']
 slack_client = WebClient(SLACK_TOKEN)
 
 # This `app` represents your existing Flask app
@@ -17,7 +19,7 @@ def hello():
 
 # Bind the Events API route to your existing Flask app by passing the server
 # instance as the last param, or with `server=app`.
-slack_events_adapter = SlackEventAdapter("20b6efc3fa89ef0ea5bcf455b6f7bb2b", "/slack/events", app)
+slack_events_adapter = SlackEventAdapter(os.environ['SLACK_SIGNING_TOKEN'], "/slack/events", app)
 
 # Create an event listener for "reaction_added" events and print the emoji name
 @slack_events_adapter.on("reaction_added")
